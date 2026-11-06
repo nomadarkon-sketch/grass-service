@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Профессиональный механизированный покос высокой травы и расчистка заросших территорий в Грузии. Быстро, качественно, любой рельеф." />
-  <meta name="keywords" content="покос травы Грузия, расчистка участка, скашивание травы, расчистка территории, покос высокой травы Грузия" />
+  <meta name="keywords" content="покос травы Грузия, расчистка участка, скашивание травы, расчистка территории, покос высокой травы Грузия, balaxis gatibva, nakvetis gasuptaveba" />
   <meta property="og:title" content="GreenCut — Профессиональный покос травы в Грузии" />
   <meta property="og:description" content="Механизированный покос высокой травы и расчистка заросших территорий. Работаем по всей Грузии." />
   <meta property="og:type" content="website" />
   <title>GreenCut — Профессиональный покос травы и расчистка территорий в Грузии</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Unbounded:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Georgian:wght@400;500;600;700;800;900&family=Unbounded:wght@700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -19,7 +19,7 @@
   <!-- ===== HEADER / NAV ===== -->
   <header class="header" id="header">
     <div class="container header__inner">
-      <a href="#hero" class="logo" aria-label="GreenCut — на главную">
+      <a href="#hero" class="logo" data-i18n-aria="nav.aria_logo" aria-label="GreenCut — на главную">
         <span class="logo__icon">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
             <circle cx="16" cy="16" r="16" fill="#2d6a4f"/>
@@ -31,24 +31,52 @@
         <span class="logo__text">Green<span>Cut</span></span>
       </a>
 
-      <nav class="nav" aria-label="Основная навигация">
+      <nav class="nav" data-i18n-aria="nav.aria_nav" aria-label="Основная навигация">
         <ul class="nav__list">
-          <li><a href="#services" class="nav__link">Услуги</a></li>
-          <li><a href="#equipment" class="nav__link">Техника</a></li>
-          <li><a href="#advantages" class="nav__link">Преимущества</a></li>
-          <li><a href="#gallery" class="nav__link">Галерея</a></li>
-          <li><a href="#process" class="nav__link">Как работаем</a></li>
-          <li><a href="#contacts" class="nav__link">Контакты</a></li>
+          <li><a href="#services" class="nav__link" data-i18n="nav.services">Услуги</a></li>
+          <li><a href="#equipment" class="nav__link" data-i18n="nav.equipment">Техника</a></li>
+          <li><a href="#advantages" class="nav__link" data-i18n="nav.advantages">Преимущества</a></li>
+          <li><a href="#gallery" class="nav__link" data-i18n="nav.gallery">Галерея</a></li>
+          <li><a href="#process" class="nav__link" data-i18n="nav.process">Как работаем</a></li>
+          <li><a href="#contacts" class="nav__link" data-i18n="nav.contacts">Контакты</a></li>
         </ul>
       </nav>
 
       <div class="header__actions">
-        <a href="https://wa.me/995XXXXXXXXX" class="btn btn--whatsapp" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
+        <!-- Desktop Language Switcher -->
+        <div class="lang-selector" id="langSelector">
+          <button type="button" class="lang-selector__btn" id="langBtn" aria-expanded="false" aria-haspopup="listbox" data-i18n-aria="nav.choose_lang" aria-label="Язык сайта">
+            <span class="lang-selector__flag" id="langCurrentFlag">🇷🇺</span>
+            <span class="lang-selector__code" id="langCurrentCode">RU</span>
+            <svg class="lang-selector__chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="lang-selector__dropdown" id="langDropdown" role="listbox" aria-label="Available languages">
+            <button type="button" class="lang-selector__option active" role="option" aria-selected="true" data-lang="ru">
+              <span class="lang-selector__flag">🇷🇺</span>
+              <span class="lang-selector__name">Русский</span>
+              <span class="lang-selector__badge">RU</span>
+            </button>
+            <button type="button" class="lang-selector__option" role="option" aria-selected="false" data-lang="ka">
+              <span class="lang-selector__flag">🇬🇪</span>
+              <span class="lang-selector__name">ქართული</span>
+              <span class="lang-selector__badge">KA</span>
+            </button>
+            <button type="button" class="lang-selector__option" role="option" aria-selected="false" data-lang="en">
+              <span class="lang-selector__flag">🇬🇧</span>
+              <span class="lang-selector__name">English</span>
+              <span class="lang-selector__badge">EN</span>
+            </button>
+          </div>
+        </div>
+
+        <a href="https://wa.me/995XXXXXXXXX" class="btn btn--whatsapp" target="_blank" rel="noopener" data-i18n-wa data-i18n-aria="contacts.c2_val" aria-label="Написать в WhatsApp">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.86L.057 23.428a.5.5 0 0 0 .615.605l5.698-1.49A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.896 0-3.665-.524-5.176-1.433l-.371-.22-3.845 1.004 1.027-3.735-.243-.386A9.967 9.967 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
           WhatsApp
         </a>
-        <a href="#order" class="btn btn--primary">Заказать покос</a>
-        <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+        <a href="#order" class="btn btn--primary" data-i18n="nav.cta">Заказать покос</a>
+        <button class="burger" id="burger" data-i18n-aria="nav.aria_menu_open" aria-label="Открыть меню" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -57,17 +85,36 @@
 
   <!-- Mobile Nav -->
   <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <!-- Language Switcher in Mobile Nav -->
+    <div class="mobile-nav__lang-box">
+      <div class="mobile-nav__lang-title" data-i18n="nav.choose_lang">Язык сайта</div>
+      <div class="lang-switch-pills">
+        <button type="button" class="lang-pill active" data-lang="ru">
+          <span class="lang-pill__flag">🇷🇺</span>
+          <span>Русский</span>
+        </button>
+        <button type="button" class="lang-pill" data-lang="ka">
+          <span class="lang-pill__flag">🇬🇪</span>
+          <span>ქართული</span>
+        </button>
+        <button type="button" class="lang-pill" data-lang="en">
+          <span class="lang-pill__flag">🇬🇧</span>
+          <span>English</span>
+        </button>
+      </div>
+    </div>
+
     <ul class="mobile-nav__list">
-      <li><a href="#services" class="mobile-nav__link">Услуги</a></li>
-      <li><a href="#equipment" class="mobile-nav__link">Техника</a></li>
-      <li><a href="#advantages" class="mobile-nav__link">Преимущества</a></li>
-      <li><a href="#gallery" class="mobile-nav__link">Галерея</a></li>
-      <li><a href="#process" class="mobile-nav__link">Как работаем</a></li>
-      <li><a href="#contacts" class="mobile-nav__link">Контакты</a></li>
+      <li><a href="#services" class="mobile-nav__link" data-i18n="nav.services">Услуги</a></li>
+      <li><a href="#equipment" class="mobile-nav__link" data-i18n="nav.equipment">Техника</a></li>
+      <li><a href="#advantages" class="mobile-nav__link" data-i18n="nav.advantages">Преимущества</a></li>
+      <li><a href="#gallery" class="mobile-nav__link" data-i18n="nav.gallery">Галерея</a></li>
+      <li><a href="#process" class="mobile-nav__link" data-i18n="nav.process">Как работаем</a></li>
+      <li><a href="#contacts" class="mobile-nav__link" data-i18n="nav.contacts">Контакты</a></li>
     </ul>
     <div class="mobile-nav__actions">
-      <a href="https://wa.me/995XXXXXXXXX" class="btn btn--whatsapp btn--full" target="_blank" rel="noopener">WhatsApp</a>
-      <a href="#order" class="btn btn--primary btn--full">Заказать покос</a>
+      <a href="https://wa.me/995XXXXXXXXX" class="btn btn--whatsapp btn--full" target="_blank" rel="noopener" data-i18n-wa>WhatsApp</a>
+      <a href="#order" class="btn btn--primary btn--full" data-i18n="nav.cta">Заказать покос</a>
     </div>
   </div>
 
@@ -107,43 +154,43 @@
       <div class="container hero__content">
         <div class="hero__badge">
           <span class="badge__dot" aria-hidden="true"></span>
-          Работаем по всей Грузии
+          <span data-i18n="hero.badge">Работаем по всей Грузии</span>
         </div>
-        <h1 class="hero__title">
+        <h1 class="hero__title" data-i18n="hero.title">
           Превращаем заросшие&nbsp;территории<br/>
           в <span class="text-accent">ухоженные&nbsp;площадки</span>
         </h1>
-        <p class="hero__subtitle">
+        <p class="hero__subtitle" data-i18n="hero.subtitle">
           Профессиональный механизированный покос высокой травы, сорняков и расчистка больших территорий. Работаем на участках любого рельефа и сложности.
         </p>
         <div class="hero__cta">
           <a href="#order" class="btn btn--primary btn--large">
-            Оставить заявку
+            <span data-i18n="hero.cta_primary">Оставить заявку</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="#services" class="btn btn--ghost btn--large">Узнать об услугах</a>
+          <a href="#services" class="btn btn--ghost btn--large" data-i18n="hero.cta_secondary">Узнать об услугах</a>
         </div>
         <div class="hero__stats">
           <div class="hero__stat">
-            <span class="stat__number">30+</span>
-            <span class="stat__label">га обработано</span>
+            <span class="stat__number" data-i18n="hero.stat1_num">30+</span>
+            <span class="stat__label" data-i18n="hero.stat1_label">га обработано</span>
           </div>
           <div class="hero__divider" aria-hidden="true"></div>
           <div class="hero__stat">
-            <span class="stat__number">2 га/день</span>
-            <span class="stat__label">производительность</span>
+            <span class="stat__number" data-i18n="hero.stat2_num">2 га/день</span>
+            <span class="stat__label" data-i18n="hero.stat2_label">производительность</span>
           </div>
           <div class="hero__divider" aria-hidden="true"></div>
           <div class="hero__stat">
-            <span class="stat__number">100%</span>
-            <span class="stat__label">механизированная уборка</span>
+            <span class="stat__number" data-i18n="hero.stat3_num">100%</span>
+            <span class="stat__label" data-i18n="hero.stat3_label">механизированная уборка</span>
           </div>
         </div>
       </div>
 
       <div class="hero__scroll" aria-hidden="true">
         <div class="scroll-line"></div>
-        <span>Scroll</span>
+        <span data-i18n="hero.scroll">Scroll</span>
       </div>
     </section>
 
@@ -151,9 +198,9 @@
     <section class="section services" id="services" aria-label="Наши услуги">
       <div class="container">
         <div class="section-header" data-aos="fade-up">
-          <span class="section-tag">Что мы делаем</span>
-          <h2 class="section-title">Наши услуги</h2>
-          <p class="section-desc">Комплексная механизированная расчистка территорий под ключ — от заявки до чистого участка</p>
+          <span class="section-tag" data-i18n="services.tag">Что мы делаем</span>
+          <h2 class="section-title" data-i18n="services.title">Наши услуги</h2>
+          <p class="section-desc" data-i18n="services.desc">Комплексная механизированная расчистка территорий под ключ — от заявки до чистого участка</p>
         </div>
 
         <div class="services__grid">
@@ -169,13 +216,13 @@
               </svg>
             </div>
             <div class="service-card__num" aria-hidden="true">01</div>
-            <h3 class="service-card__title">Покос высокой травы</h3>
-            <p class="service-card__desc">Скашиваем траву любой высоты — от 0,5 до 3+ метров. Работаем с густой растительностью, кустарником и сорняками на больших площадях.</p>
+            <h3 class="service-card__title" data-i18n="services.s1_title">Покос высокой травы</h3>
+            <p class="service-card__desc" data-i18n="services.s1_desc">Скашиваем траву любой высоты — от 0,5 до 3+ метров. Работаем с густой растительностью, кустарником и сорняками на больших площадях.</p>
             <ul class="service-card__list">
-              <li>Трава до 3 метров высотой</li>
-              <li>Кустарник и молодой подлесок</li>
-              <li>Сорняки и дикорастущие растения</li>
-              <li>Участки от 1 сотки до нескольких га</li>
+              <li data-i18n="services.s1_item1">Трава до 3 метров высотой</li>
+              <li data-i18n="services.s1_item2">Кустарник и молодой подлесок</li>
+              <li data-i18n="services.s1_item3">Сорняки и дикорастущие растения</li>
+              <li data-i18n="services.s1_item4">Участки от 1 сотки до нескольких га</li>
             </ul>
           </article>
 
@@ -190,15 +237,15 @@
               </svg>
             </div>
             <div class="service-card__num" aria-hidden="true">02</div>
-            <h3 class="service-card__title">Расчистка заросших участков</h3>
-            <p class="service-card__desc">Полная расчистка запущенных и заброшенных территорий. Убираем густой кустарник, бурьян и многолетние сорняки — готовим участок к использованию.</p>
+            <h3 class="service-card__title" data-i18n="services.s2_title">Расчистка заросших участков</h3>
+            <p class="service-card__desc" data-i18n="services.s2_desc">Полная расчистка запущенных и заброшенных территорий. Убираем густой кустарник, бурьян и многолетние сорняки — готовим участок к использованию.</p>
             <ul class="service-card__list">
-              <li>Заброшенные участки и пустыри</li>
-              <li>Территории после стройки</li>
-              <li>Обочины дорог и склоны</li>
-              <li>Подготовка под застройку</li>
+              <li data-i18n="services.s2_item1">Заброшенные участки и пустыри</li>
+              <li data-i18n="services.s2_item2">Территории после стройки</li>
+              <li data-i18n="services.s2_item3">Обочины дорог и склоны</li>
+              <li data-i18n="services.s2_item4">Подготовка под застройку</li>
             </ul>
-            <div class="service-card__badge">Популярно</div>
+            <div class="service-card__badge" data-i18n="services.s2_badge">Популярно</div>
           </article>
 
           <article class="service-card" data-aos="fade-up" data-aos-delay="300">
@@ -215,13 +262,13 @@
               </svg>
             </div>
             <div class="service-card__num" aria-hidden="true">03</div>
-            <h3 class="service-card__title">Обслуживание больших территорий</h3>
-            <p class="service-card__desc">Регулярный уход за большими земельными участками, промышленными зонами, сельскохозяйственными угодьями и муниципальными территориями.</p>
+            <h3 class="service-card__title" data-i18n="services.s3_title">Обслуживание больших территорий</h3>
+            <p class="service-card__desc" data-i18n="services.s3_desc">Регулярный уход за большими земельными участками, промышленными зонами, сельскохозяйственными угодьями и муниципальными территориями.</p>
             <ul class="service-card__list">
-              <li>Промышленные и складские зоны</li>
-              <li>Сельскохозяйственные угодья</li>
-              <li>Муниципальные территории</li>
-              <li>Регулярное обслуживание</li>
+              <li data-i18n="services.s3_item1">Промышленные и складские зоны</li>
+              <li data-i18n="services.s3_item2">Сельскохозяйственные угодья</li>
+              <li data-i18n="services.s3_item3">Муниципальные территории</li>
+              <li data-i18n="services.s3_item4">Регулярное обслуживание</li>
             </ul>
           </article>
         </div>
@@ -232,18 +279,18 @@
     <section class="section equipment" id="equipment" aria-label="Наша техника">
       <div class="container">
         <div class="section-header" data-aos="fade-up">
-          <span class="section-tag">Профессиональный парк</span>
-          <h2 class="section-title">Наша техника</h2>
-          <p class="section-desc">Используем современное профессиональное оборудование, которое справляется с любой растительностью</p>
+          <span class="section-tag" data-i18n="equipment.tag">Профессиональный парк</span>
+          <h2 class="section-title" data-i18n="equipment.title">Наша техника</h2>
+          <p class="section-desc" data-i18n="equipment.desc">Используем современное профессиональное оборудование, которое справляется с любой растительностью</p>
         </div>
 
         <div class="equipment__grid">
           <div class="equipment__visual" data-aos="fade-right">
             <div class="equipment__showcase">
               <div class="equip-tabs">
-                <button class="equip-tab active" data-tab="0" aria-selected="true">Триммер-косилка</button>
-                <button class="equip-tab" data-tab="1" aria-selected="false">Мотокоса</button>
-                <button class="equip-tab" data-tab="2" aria-selected="false">Навесной кусторез</button>
+                <button class="equip-tab active" data-tab="0" aria-selected="true" data-i18n="equipment.tab0">Триммер-косилка</button>
+                <button class="equip-tab" data-tab="1" aria-selected="false" data-i18n="equipment.tab1">Мотокоса</button>
+                <button class="equip-tab" data-tab="2" aria-selected="false" data-i18n="equipment.tab2">Навесной кусторез</button>
               </div>
               <div class="equip-display">
                 <div class="equip-item active" data-item="0">
@@ -401,76 +448,76 @@
             <div class="spec-cards">
               <div class="spec-card spec-active" data-spec="0">
                 <div class="spec-card__header">
-                  <h3>Профессиональная косилка-кусторез</h3>
-                  <span class="spec-badge">Основная техника</span>
+                  <h3 data-i18n="equipment.eq0_title">Профессиональная косилка-кусторез</h3>
+                  <span class="spec-badge" data-i18n="equipment.eq0_badge">Основная техника</span>
                 </div>
-                <p>Мощная самоходная косилка для работы с высокой и густой растительностью. Справляется с травой высотой до 2–3 метров и молодым кустарником.</p>
+                <p data-i18n="equipment.eq0_desc">Мощная самоходная косилка для работы с высокой и густой растительностью. Справляется с травой высотой до 2–3 метров и молодым кустарником.</p>
                 <dl class="spec-list">
                   <div class="spec-row">
-                    <dt>Мощность</dt>
-                    <dd>15 кВт</dd>
+                    <dt data-i18n="equipment.eq0_p1_name">Мощность</dt>
+                    <dd data-i18n="equipment.eq0_p1_val">15 кВт</dd>
                   </div>
                   <div class="spec-row">
-                    <dt>Ширина захвата</dt>
-                    <dd>1,2 м</dd>
+                    <dt data-i18n="equipment.eq0_p2_name">Ширина захвата</dt>
+                    <dd data-i18n="equipment.eq0_p2_val">1,2 м</dd>
                   </div>
                   <div class="spec-row">
-                    <dt>Производительность</dt>
-                    <dd>до 1 га/ч</dd>
+                    <dt data-i18n="equipment.eq0_p3_name">Производительность</dt>
+                    <dd data-i18n="equipment.eq0_p3_val">до 1 га/ч</dd>
                   </div>
                   <div class="spec-row">
-                    <dt>Работа на склонах</dt>
-                    <dd>до 35°</dd>
+                    <dt data-i18n="equipment.eq0_p4_name">Работа на склонах</dt>
+                    <dd data-i18n="equipment.eq0_p4_val">до 35°</dd>
                   </div>
                 </dl>
               </div>
               <div class="spec-card" data-spec="1">
                 <div class="spec-card__header">
-                  <h3>Профессиональные триммеры</h3>
-                  <span class="spec-badge">Точная работа</span>
+                  <h3 data-i18n="equipment.eq1_title">Профессиональные триммеры</h3>
+                  <span class="spec-badge" data-i18n="equipment.eq1_badge">Точная работа</span>
                 </div>
-                <p>Используются для труднодоступных мест, обработки краёв, откосов и участков сложной формы после основной уборки.</p>
+                <p data-i18n="equipment.eq1_desc">Используются для труднодоступных мест, обработки краёв, откосов и участков сложной формы после основной уборки.</p>
                 <dl class="spec-list">
                   <div class="spec-row">
-                    <dt>Мощность</dt>
-                    <dd>3,5 кВт</dd>
+                    <dt data-i18n="equipment.eq1_p1_name">Мощность</dt>
+                    <dd data-i18n="equipment.eq1_p1_val">3,5 кВт</dd>
                   </div>
                   <div class="spec-row">
-                    <dt>Насадки</dt>
-                    <dd>леска / диск</dd>
+                    <dt data-i18n="equipment.eq1_p2_name">Насадки</dt>
+                    <dd data-i18n="equipment.eq1_p2_val">леска / диск</dd>
                   </div>
                   <div class="spec-row">
-                    <dt>Антивибрация</dt>
-                    <dd>да</dd>
+                    <dt data-i18n="equipment.eq1_p3_name">Антивибрация</dt>
+                    <dd data-i18n="equipment.eq1_p3_val">да</dd>
                   </div>
                   <div class="spec-row">
-                    <dt>Применение</dt>
-                    <dd>края, откосы</dd>
+                    <dt data-i18n="equipment.eq1_p4_name">Применение</dt>
+                    <dd data-i18n="equipment.eq1_p4_val">края, откосы</dd>
                   </div>
                 </dl>
               </div>
               <div class="spec-card" data-spec="2">
                 <div class="spec-card__header">
-                  <h3>Трактор с навесным кусторезом</h3>
-                  <span class="spec-badge">Тяжёлые объёмы</span>
+                  <h3 data-i18n="equipment.eq2_title">Трактор с навесным кусторезом</h3>
+                  <span class="spec-badge" data-i18n="equipment.eq2_badge">Тяжёлые объёмы</span>
                 </div>
-                <p>Для расчистки больших площадей с густым кустарником и высокими зарослями. Обеспечивает максимальную производительность на открытых территориях.</p>
+                <p data-i18n="equipment.eq2_desc">Для расчистки больших площадей с густым кустарником и высокими зарослями. Обеспечивает максимальную производительность на открытых территориях.</p>
                 <dl class="spec-list">
                   <div class="spec-row">
-                    <dt>Мощность</dt>
-                    <dd>55 л.с.</dd>
+                    <dt data-i18n="equipment.eq2_p1_name">Мощность</dt>
+                    <dd data-i18n="equipment.eq2_p1_val">55 л.с.</dd>
                   </div>
                   <div class="spec-row">
-                    <dt>Ширина захвата</dt>
-                    <dd>1,6 м</dd>
+                    <dt data-i18n="equipment.eq2_p2_name">Ширина захвата</dt>
+                    <dd data-i18n="equipment.eq2_p2_val">1,6 м</dd>
                   </div>
                   <div class="spec-row">
-                    <dt>Производительность</dt>
-                    <dd>до 2 га/ч</dd>
+                    <dt data-i18n="equipment.eq2_p3_name">Производительность</dt>
+                    <dd data-i18n="equipment.eq2_p3_val">до 2 га/ч</dd>
                   </div>
                   <div class="spec-row">
-                    <dt>Мощность резки</dt>
-                    <dd>ветки до 5 см</dd>
+                    <dt data-i18n="equipment.eq2_p4_name">Мощность резки</dt>
+                    <dd data-i18n="equipment.eq2_p4_val">ветки до 5 см</dd>
                   </div>
                 </dl>
               </div>
@@ -484,9 +531,9 @@
     <section class="section advantages" id="advantages" aria-label="Наши преимущества">
       <div class="container">
         <div class="section-header" data-aos="fade-up">
-          <span class="section-tag">Почему выбирают нас</span>
-          <h2 class="section-title">Наши преимущества</h2>
-          <p class="section-desc">Механизированный подход — это скорость, качество и результат там, где ручной труд невозможен</p>
+          <span class="section-tag" data-i18n="advantages.tag">Почему выбирают нас</span>
+          <h2 class="section-title" data-i18n="advantages.title">Наши преимущества</h2>
+          <p class="section-desc" data-i18n="advantages.desc">Механизированный подход — это скорость, качество и результат там, где ручной труд невозможен</p>
         </div>
 
         <div class="advantages__grid">
@@ -498,8 +545,8 @@
                 <circle cx="20" cy="20" r="10" stroke="#2d6a4f" stroke-width="1.5" stroke-dasharray="4,2"/>
               </svg>
             </div>
-            <h3>Высокая скорость</h3>
-            <p>Обрабатываем до 2 гектаров в день. Завершаем проекты в сроки, которые невозможны при ручной работе.</p>
+            <h3 data-i18n="advantages.adv1_title">Высокая скорость</h3>
+            <p data-i18n="advantages.adv1_desc">Обрабатываем до 2 гектаров в день. Завершаем проекты в сроки, которые невозможны при ручной работе.</p>
           </div>
 
           <div class="adv-card" data-aos="fade-up" data-aos-delay="100">
@@ -509,8 +556,8 @@
                 <path d="M12 20 L18 26 L28 14" stroke="#52b788" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <h3>Гарантированное качество</h3>
-            <p>Равномерный результат на всей площади. Трава срезается точно и аккуратно, без пропусков и неровностей.</p>
+            <h3 data-i18n="advantages.adv2_title">Гарантированное качество</h3>
+            <p data-i18n="advantages.adv2_desc">Равномерный результат на всей площади. Трава срезается точно и аккуратно, без пропусков и неровностей.</p>
           </div>
 
           <div class="adv-card" data-aos="fade-up" data-aos-delay="200">
@@ -524,8 +571,8 @@
                 <line x1="12" y1="30" x2="28" y2="30" stroke="#2d6a4f" stroke-width="1.5" stroke-dasharray="2,2"/>
               </svg>
             </div>
-            <h3>Любой рельеф</h3>
-            <p>Работаем на склонах, холмах, вдоль канав, у водоёмов. Техника адаптирована для сложного грузинского рельефа.</p>
+            <h3 data-i18n="advantages.adv3_title">Любой рельеф</h3>
+            <p data-i18n="advantages.adv3_desc">Работаем на склонах, холмах, вдоль канав, у водоёмов. Техника адаптирована для сложного грузинского рельефа.</p>
           </div>
 
           <div class="adv-card" data-aos="fade-up" data-aos-delay="300">
@@ -537,8 +584,8 @@
                 <circle cx="20" cy="23" r="2" fill="#52b788"/>
               </svg>
             </div>
-            <h3>Безопасность</h3>
-            <p>Соблюдаем все нормы безопасности. Перед работой оцениваем территорию, убираем опасные предметы, выставляем ограждения.</p>
+            <h3 data-i18n="advantages.adv4_title">Безопасность</h3>
+            <p data-i18n="advantages.adv4_desc">Соблюдаем все нормы безопасности. Перед работой оцениваем территорию, убираем опасные предметы, выставляем ограждения.</p>
           </div>
 
           <div class="adv-card" data-aos="fade-up" data-aos-delay="400">
@@ -548,8 +595,8 @@
                 <path d="M20 10 L22.5 16 L29 16.5 L24 21 L25.5 28 L20 24.5 L14.5 28 L16 21 L11 16.5 L17.5 16 Z" stroke="#52b788" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
               </svg>
             </div>
-            <h3>Прозрачное ценообразование</h3>
-            <p>Стоимость рассчитывается до начала работ и фиксируется в договоре. Никаких скрытых платежей и доплат по факту.</p>
+            <h3 data-i18n="advantages.adv5_title">Прозрачное ценообразование</h3>
+            <p data-i18n="advantages.adv5_desc">Стоимость рассчитывается до начала работ и фиксируется в договоре. Никаких скрытых платежей и доплат по факту.</p>
           </div>
 
           <div class="adv-card" data-aos="fade-up" data-aos-delay="500">
@@ -561,8 +608,8 @@
                 <circle cx="20" cy="23" r="3" fill="#52b788"/>
               </svg>
             </div>
-            <h3>Выезд по всей Грузии</h3>
-            <p>Работаем в Тбилиси, Кахетии, Картли, Аджарии и других регионах. Выезжаем на оценку объекта бесплатно.</p>
+            <h3 data-i18n="advantages.adv6_title">Выезд по всей Грузии</h3>
+            <p data-i18n="advantages.adv6_desc">Работаем в Тбилиси, Кахетии, Картли, Аджарии и других регионах. Выезжаем на оценку объекта бесплатно.</p>
           </div>
         </div>
       </div>
@@ -572,9 +619,9 @@
     <section class="section gallery" id="gallery" aria-label="Галерея работ">
       <div class="container">
         <div class="section-header" data-aos="fade-up">
-          <span class="section-tag">Результаты</span>
-          <h2 class="section-title">До и после</h2>
-          <p class="section-desc">Смотрите, как изменяются участки после нашей работы</p>
+          <span class="section-tag" data-i18n="gallery.tag">Результаты</span>
+          <h2 class="section-title" data-i18n="gallery.title">До и после</h2>
+          <p class="section-desc" data-i18n="gallery.desc">Смотрите, как изменяются участки после нашей работы</p>
         </div>
 
         <div class="gallery__grid">
@@ -582,7 +629,7 @@
           <div class="ba-card" data-aos="fade-up" data-aos-delay="100">
             <div class="ba-card__inner">
               <div class="ba-side ba-side--before">
-                <div class="ba-label">До</div>
+                <div class="ba-label" data-i18n="gallery.label_before">До</div>
                 <div class="ba-visual" aria-hidden="true">
                   <svg viewBox="0 0 320 220" fill="none">
                     <rect width="320" height="220" fill="#081c0e"/>
@@ -618,7 +665,7 @@
                     <rect width="320" height="220" fill="#081c0e" fill-opacity="0.25"/>
                   </svg>
                 </div>
-                <p class="ba-desc">Участок 40 соток. Густые заросли до 2 м высотой. Крапива, бурьян, молодой кустарник.</p>
+                <p class="ba-desc" data-i18n="gallery.c1_before_desc">Участок 40 соток. Густые заросли до 2 м высотой. Крапива, бурьян, молодой кустарник.</p>
               </div>
               <div class="ba-divider" aria-hidden="true">
                 <div class="ba-arrow">
@@ -626,7 +673,7 @@
                 </div>
               </div>
               <div class="ba-side ba-side--after">
-                <div class="ba-label">После</div>
+                <div class="ba-label" data-i18n="gallery.label_after">После</div>
                 <div class="ba-visual" aria-hidden="true">
                   <svg viewBox="0 0 320 220" fill="none">
                     <rect width="320" height="220" fill="#0d2416"/>
@@ -660,13 +707,13 @@
                     <path d="M246 80 L256 90 L274 68" stroke="#52b788" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </div>
-                <p class="ba-desc">Результат после 1 рабочего дня. Участок полностью расчищен и готов к использованию.</p>
+                <p class="ba-desc" data-i18n="gallery.c1_after_desc">Результат после 1 рабочего дня. Участок полностью расчищен и готов к использованию.</p>
               </div>
             </div>
             <div class="ba-meta">
-              <span>📍 Кахетия</span>
-              <span>📐 40 соток</span>
-              <span>⏱ 1 день</span>
+              <span data-i18n="gallery.c1_loc">📍 Кахетия</span>
+              <span data-i18n="gallery.c1_area">📐 40 соток</span>
+              <span data-i18n="gallery.c1_time">⏱ 1 день</span>
             </div>
           </div>
 
@@ -674,7 +721,7 @@
           <div class="ba-card" data-aos="fade-up" data-aos-delay="200">
             <div class="ba-card__inner">
               <div class="ba-side ba-side--before">
-                <div class="ba-label">До</div>
+                <div class="ba-label" data-i18n="gallery.label_before">До</div>
                 <div class="ba-visual" aria-hidden="true">
                   <svg viewBox="0 0 320 220" fill="none">
                     <rect width="320" height="220" fill="#081c0e"/>
@@ -701,7 +748,7 @@
                     <rect width="320" height="220" fill="#081c0e" fill-opacity="0.3"/>
                   </svg>
                 </div>
-                <p class="ba-desc">Промышленная зона 2 га. Запущена более 5 лет. Густой кустарник, мусор, высокие сорняки.</p>
+                <p class="ba-desc" data-i18n="gallery.c2_before_desc">Промышленная зона 2 га. Запущена более 5 лет. Густой кустарник, мусор, высокие сорняки.</p>
               </div>
               <div class="ba-divider" aria-hidden="true">
                 <div class="ba-arrow">
@@ -709,7 +756,7 @@
                 </div>
               </div>
               <div class="ba-side ba-side--after">
-                <div class="ba-label">После</div>
+                <div class="ba-label" data-i18n="gallery.label_after">После</div>
                 <div class="ba-visual" aria-hidden="true">
                   <svg viewBox="0 0 320 220" fill="none">
                     <rect width="320" height="220" fill="#0d2416"/>
@@ -751,20 +798,20 @@
                     <path d="M246 80 L256 90 L274 68" stroke="#52b788" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </div>
-                <p class="ba-desc">Территория расчищена за 3 дня. Объект подготовлен для строительных работ.</p>
+                <p class="ba-desc" data-i18n="gallery.c2_after_desc">Территория расчищена за 3 дня. Объект подготовлен для строительных работ.</p>
               </div>
             </div>
             <div class="ba-meta">
-              <span>📍 Тбилиси</span>
-              <span>📐 2 га</span>
-              <span>⏱ 3 дня</span>
+              <span data-i18n="gallery.c2_loc">📍 Тбилиси</span>
+              <span data-i18n="gallery.c2_area">📐 2 га</span>
+              <span data-i18n="gallery.c2_time">⏱ 3 дня</span>
             </div>
           </div>
         </div>
 
         <div class="gallery__cta" data-aos="fade-up">
-          <p>Хотите такой же результат на своём участке?</p>
-          <a href="#order" class="btn btn--primary">Оставить заявку</a>
+          <p data-i18n="gallery.cta_text">Хотите такой же результат на своём участке?</p>
+          <a href="#order" class="btn btn--primary" data-i18n="gallery.cta_btn">Оставить заявку</a>
         </div>
       </div>
     </section>
@@ -773,9 +820,9 @@
     <section class="section process" id="process" aria-label="Этапы работы">
       <div class="container">
         <div class="section-header" data-aos="fade-up">
-          <span class="section-tag">Просто и понятно</span>
-          <h2 class="section-title">Как мы работаем</h2>
-          <p class="section-desc">Четыре шага от вашей заявки до чистого участка</p>
+          <span class="section-tag" data-i18n="process.tag">Просто и понятно</span>
+          <h2 class="section-title" data-i18n="process.title">Как мы работаем</h2>
+          <p class="section-desc" data-i18n="process.desc">Четыре шага от вашей заявки до чистого участка</p>
         </div>
 
         <div class="process__steps">
@@ -790,8 +837,8 @@
               </svg>
             </div>
             <div class="step__content">
-              <h3>Заявка</h3>
-              <p>Оставляете заявку на сайте, звоните или пишете в WhatsApp. Описываете объект и желаемые сроки работ.</p>
+              <h3 data-i18n="process.s1_title">Заявка</h3>
+              <p data-i18n="process.s1_desc">Оставляете заявку на сайте, звоните или пишете в WhatsApp. Описываете объект и желаемые сроки работ.</p>
             </div>
             <div class="step__connector" aria-hidden="true"></div>
           </div>
@@ -807,8 +854,8 @@
               </svg>
             </div>
             <div class="step__content">
-              <h3>Осмотр участка</h3>
-              <p>Выезжаем на объект, оцениваем площадь, рельеф, тип растительности. Выезд и оценка — бесплатно.</p>
+              <h3 data-i18n="process.s2_title">Осмотр участка</h3>
+              <p data-i18n="process.s2_desc">Выезжаем на объект, оцениваем площадь, рельеф, тип растительности. Выезд и оценка — бесплатно.</p>
             </div>
             <div class="step__connector" aria-hidden="true"></div>
           </div>
@@ -823,8 +870,8 @@
               </svg>
             </div>
             <div class="step__content">
-              <h3>Согласование стоимости</h3>
-              <p>Называем точную стоимость, сроки и состав работ. Вы принимаете решение без спешки и скрытых условий.</p>
+              <h3 data-i18n="process.s3_title">Согласование стоимости</h3>
+              <p data-i18n="process.s3_desc">Называем точную стоимость, сроки и состав работ. Вы принимаете решение без спешки и скрытых условий.</p>
             </div>
             <div class="step__connector" aria-hidden="true"></div>
           </div>
@@ -840,8 +887,8 @@
               </svg>
             </div>
             <div class="step__content">
-              <h3>Выполнение работ</h3>
-              <p>Приезжаем в согласованный день, выполняем все работы качественно и в срок. Показываем результат по завершении.</p>
+              <h3 data-i18n="process.s4_title">Выполнение работ</h3>
+              <p data-i18n="process.s4_desc">Приезжаем в согласованный день, выполняем все работы качественно и в срок. Показываем результат по завершении.</p>
             </div>
           </div>
         </div>
@@ -853,25 +900,25 @@
       <div class="container">
         <div class="order__inner">
           <div class="order__info" data-aos="fade-right">
-            <span class="section-tag">Получить расчёт</span>
-            <h2 class="section-title">Оставить заявку</h2>
-            <p>Заполните форму — мы свяжемся с вами в течение часа, обсудим детали и назовём точную стоимость.</p>
+            <span class="section-tag" data-i18n="order.tag">Получить расчёт</span>
+            <h2 class="section-title" data-i18n="order.title">Оставить заявку</h2>
+            <p data-i18n="order.desc">Заполните форму — мы свяжемся с вами в течение часа, обсудим детали и назовём точную стоимость.</p>
             <ul class="order__perks">
               <li>
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#2d6a4f"/><path d="M6 10 L9 13 L14 7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Выезд и оценка — бесплатно
+                <span data-i18n="order.perk1">Выезд и оценка — бесплатно</span>
               </li>
               <li>
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#2d6a4f"/><path d="M6 10 L9 13 L14 7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Фиксированная цена до начала работ
+                <span data-i18n="order.perk2">Фиксированная цена до начала работ</span>
               </li>
               <li>
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#2d6a4f"/><path d="M6 10 L9 13 L14 7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Работаем по всей Грузии
+                <span data-i18n="order.perk3">Работаем по всей Грузии</span>
               </li>
               <li>
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#2d6a4f"/><path d="M6 10 L9 13 L14 7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Быстрый ответ: в течение 1 часа
+                <span data-i18n="order.perk4">Быстрый ответ: в течение 1 часа</span>
               </li>
             </ul>
 
@@ -881,17 +928,17 @@
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M6.5 3.5 C7 5.5, 7.5 7, 8.5 8 L6.5 10 C7.5 11.5, 8.5 12.5, 10 13.5 L12 11.5 C13 12.5, 14.5 13, 16.5 13.5 L16.5 16.5 C13 17.5, 5 15, 3 6.5 Z" stroke="#52b788" stroke-width="1.5" fill="none" stroke-linejoin="round"/></svg>
                 </div>
                 <div>
-                  <span class="contact-link__label">Телефон</span>
+                  <span class="contact-link__label" data-i18n="order.phone_label">Телефон</span>
                   <span class="contact-link__value">+995 XXX XXX XXX</span>
                 </div>
               </a>
-              <a href="https://wa.me/995XXXXXXXXX" class="contact-link" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
+              <a href="https://wa.me/995XXXXXXXXX" class="contact-link" target="_blank" rel="noopener" data-i18n-wa data-i18n-aria="order.wa_action" aria-label="Написать в WhatsApp">
                 <div class="contact-link__icon contact-link__icon--wa" aria-hidden="true">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.86L.057 23.428a.5.5 0 0 0 .615.605l5.698-1.49A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.896 0-3.665-.524-5.176-1.433l-.371-.22-3.845 1.004 1.027-3.735-.243-.386A9.967 9.967 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
                 </div>
                 <div>
                   <span class="contact-link__label">WhatsApp</span>
-                  <span class="contact-link__value">Написать сейчас</span>
+                  <span class="contact-link__value" data-i18n="order.wa_action">Написать сейчас</span>
                 </div>
               </a>
             </div>
@@ -900,50 +947,50 @@
           <div class="order__form-wrap" data-aos="fade-left">
             <form class="order-form" id="orderForm" novalidate aria-label="Форма заявки на покос">
               <div class="form-group">
-                <label class="form-label" for="name">Ваше имя <span aria-label="обязательное поле">*</span></label>
-                <input class="form-input" type="text" id="name" name="name" placeholder="Введите ваше имя" required autocomplete="name" />
+                <label class="form-label" for="name"><span data-i18n="order.form_name">Ваше имя</span> <span data-i18n-aria="order.form_req_star" aria-label="обязательное поле">*</span></label>
+                <input class="form-input" type="text" id="name" name="name" data-i18n-placeholder="order.form_name_ph" placeholder="Введите ваше имя" required autocomplete="name" />
                 <span class="form-error" aria-live="polite"></span>
               </div>
               <div class="form-group">
-                <label class="form-label" for="phone">Телефон <span aria-label="обязательное поле">*</span></label>
-                <input class="form-input" type="tel" id="phone" name="phone" placeholder="+995 XXX XXX XXX" required autocomplete="tel" />
+                <label class="form-label" for="phone"><span data-i18n="order.form_phone">Телефон</span> <span data-i18n-aria="order.form_req_star" aria-label="обязательное поле">*</span></label>
+                <input class="form-input" type="tel" id="phone" name="phone" data-i18n-placeholder="order.form_phone_ph" placeholder="+995 XXX XXX XXX" required autocomplete="tel" />
                 <span class="form-error" aria-live="polite"></span>
               </div>
               <div class="form-group">
-                <label class="form-label" for="area">Площадь участка</label>
-                <input class="form-input" type="text" id="area" name="area" placeholder="Например: 20 соток или 2 га" autocomplete="off" />
+                <label class="form-label" for="area" data-i18n="order.form_area">Площадь участка</label>
+                <input class="form-input" type="text" id="area" name="area" data-i18n-placeholder="order.form_area_ph" placeholder="Например: 20 соток или 2 га" autocomplete="off" />
               </div>
               <div class="form-group">
-                <label class="form-label" for="location">Местоположение</label>
-                <input class="form-input" type="text" id="location" name="location" placeholder="Город, район или адрес" autocomplete="off" />
+                <label class="form-label" for="location" data-i18n="order.form_loc">Местоположение</label>
+                <input class="form-input" type="text" id="location" name="location" data-i18n-placeholder="order.form_loc_ph" placeholder="Город, район или адрес" autocomplete="off" />
               </div>
               <div class="form-group">
-                <label class="form-label" for="comment">Комментарий</label>
-                <textarea class="form-input form-textarea" id="comment" name="comment" placeholder="Опишите состояние участка, пожелания по срокам или другую важную информацию" rows="4"></textarea>
+                <label class="form-label" for="comment" data-i18n="order.form_comm">Комментарий</label>
+                <textarea class="form-input form-textarea" id="comment" name="comment" data-i18n-placeholder="order.form_comm_ph" placeholder="Опишите состояние участка, пожелания по срокам или другую важную информацию" rows="4"></textarea>
               </div>
               <div class="form-group form-group--checkbox">
                 <label class="form-checkbox">
                   <input type="checkbox" id="agree" name="agree" required />
                   <span class="form-checkbox__mark" aria-hidden="true"></span>
-                  <span>Я согласен(а) на обработку персональных данных <span aria-label="обязательное поле">*</span></span>
+                  <span><span data-i18n="order.form_agree">Я согласен(а) на обработку персональных данных</span> <span data-i18n-aria="order.form_req_star" aria-label="обязательное поле">*</span></span>
                 </label>
                 <span class="form-error" aria-live="polite"></span>
               </div>
               <button type="submit" class="btn btn--primary btn--full btn--large" id="submitBtn">
-                <span class="btn-text">Отправить заявку</span>
+                <span class="btn-text" data-i18n="order.form_submit">Отправить заявку</span>
                 <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 <span class="btn-loader" aria-hidden="true"></span>
               </button>
-              <p class="form-note">* Обязательные поля. Данные используются только для связи с вами.</p>
+              <p class="form-note" data-i18n="order.form_note">* Обязательные поля. Данные используются только для связи с вами.</p>
             </form>
 
             <div class="form-success" id="formSuccess" aria-live="assertive" hidden>
               <div class="form-success__icon" aria-hidden="true">
                 <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="30" fill="#2d6a4f"/><path d="M18 30 L26 38 L42 22" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
-              <h3>Заявка отправлена!</h3>
-              <p>Мы получили вашу заявку и свяжемся с вами в течение часа. Спасибо, что выбрали GreenCut!</p>
-              <a href="https://wa.me/995XXXXXXXXX" class="btn btn--whatsapp" target="_blank" rel="noopener">Написать в WhatsApp</a>
+              <h3 data-i18n="order.succ_title">Заявка отправлена!</h3>
+              <p data-i18n="order.succ_desc">Мы получили вашу заявку и свяжемся с вами в течение часа. Спасибо, что выбрали GreenCut!</p>
+              <a href="https://wa.me/995XXXXXXXXX" class="btn btn--whatsapp" target="_blank" rel="noopener" data-i18n-wa data-i18n="order.succ_wa_btn">Написать в WhatsApp</a>
             </div>
           </div>
         </div>
@@ -954,8 +1001,8 @@
     <section class="section contacts" id="contacts" aria-label="Контакты">
       <div class="container">
         <div class="section-header" data-aos="fade-up">
-          <span class="section-tag">Свяжитесь с нами</span>
-          <h2 class="section-title">Контакты</h2>
+          <span class="section-tag" data-i18n="contacts.tag">Свяжитесь с нами</span>
+          <h2 class="section-title" data-i18n="contacts.title">Контакты</h2>
         </div>
 
         <div class="contacts__grid">
@@ -963,36 +1010,36 @@
             <div class="contact-card__icon" aria-hidden="true">
               <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M9 5 C9.7 7.7, 10.5 9.8, 12 11 L9 13.5 C10.5 15.5, 12 17, 14.5 18.5 L17 16 C18.2 17.2, 20.3 18, 23 18.7 L23 22.5 C18.5 23.8, 7 20.8, 4.5 9.5 Z" stroke="#52b788" stroke-width="1.8" fill="none" stroke-linejoin="round"/></svg>
             </div>
-            <h3>Телефон</h3>
+            <h3 data-i18n="contacts.c1_title">Телефон</h3>
             <a href="tel:+995XXXXXXXXX">+995 XXX XXX XXX</a>
-            <span>Ежедневно с 8:00 до 20:00</span>
+            <span data-i18n="contacts.c1_sub">Ежедневно с 8:00 до 20:00</span>
           </div>
 
           <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
             <div class="contact-card__icon contact-card__icon--wa" aria-hidden="true">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.86L.057 23.428a.5.5 0 0 0 .615.605l5.698-1.49A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.896 0-3.665-.524-5.176-1.433l-.371-.22-3.845 1.004 1.027-3.735-.243-.386A9.967 9.967 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
             </div>
-            <h3>WhatsApp</h3>
-            <a href="https://wa.me/995XXXXXXXXX" target="_blank" rel="noopener">Написать в WhatsApp</a>
-            <span>Быстрый ответ</span>
+            <h3 data-i18n="contacts.c2_title">WhatsApp</h3>
+            <a href="https://wa.me/995XXXXXXXXX" target="_blank" rel="noopener" data-i18n-wa data-i18n="contacts.c2_val">Написать в WhatsApp</a>
+            <span data-i18n="contacts.c2_sub">Быстрый ответ</span>
           </div>
 
           <div class="contact-card" data-aos="fade-up" data-aos-delay="300">
             <div class="contact-card__icon" aria-hidden="true">
               <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 3 C9 3, 5 7, 5 12 C5 19, 14 25, 14 25 C14 25, 23 19, 23 12 C23 7, 19 3, 14 3Z" stroke="#52b788" stroke-width="1.8" fill="none"/><circle cx="14" cy="12" r="3" stroke="#52b788" stroke-width="1.5"/></svg>
             </div>
-            <h3>Регион работы</h3>
-            <span>Вся Грузия</span>
-            <span>Выезд на оценку — бесплатно</span>
+            <h3 data-i18n="contacts.c3_title">Регион работы</h3>
+            <span data-i18n="contacts.c3_val">Вся Грузия</span>
+            <span data-i18n="contacts.c3_sub">Выезд на оценку — бесплатно</span>
           </div>
 
           <div class="contact-card" data-aos="fade-up" data-aos-delay="400">
             <div class="contact-card__icon" aria-hidden="true">
               <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="6" width="20" height="16" rx="3" stroke="#52b788" stroke-width="1.8" fill="none"/><path d="M4 10 L14 17 L24 10" stroke="#52b788" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
             </div>
-            <h3>Email</h3>
+            <h3 data-i18n="contacts.c4_title">Email</h3>
             <a href="mailto:info@greencut.ge">info@greencut.ge</a>
-            <span>Для коммерческих запросов</span>
+            <span data-i18n="contacts.c4_sub">Для коммерческих запросов</span>
           </div>
         </div>
 
@@ -1000,12 +1047,12 @@
         <div class="wa-cta" data-aos="zoom-in">
           <div class="wa-cta__inner">
             <div class="wa-cta__text">
-              <h3>Быстрее всего — в WhatsApp</h3>
-              <p>Напишите нам прямо сейчас, пришлите фото участка и получите предварительную оценку</p>
+              <h3 data-i18n="contacts.wa_box_title">Быстрее всего — в WhatsApp</h3>
+              <p data-i18n="contacts.wa_box_desc">Напишите нам прямо сейчас, пришлите фото участка и получите предварительную оценку</p>
             </div>
-            <a href="https://wa.me/995XXXXXXXXX?text=Здравствуйте!%20Меня%20интересует%20покос%20травы%20на%20моём%20участке." class="btn btn--whatsapp btn--large" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
+            <a href="https://wa.me/995XXXXXXXXX?text=Здравствуйте!%20Меня%20интересует%20покос%20травы%20на%20моём%20участке." class="btn btn--whatsapp btn--large" target="_blank" rel="noopener" data-i18n-wa data-i18n-aria="contacts.wa_box_btn" aria-label="Написать в WhatsApp">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.86L.057 23.428a.5.5 0 0 0 .615.605l5.698-1.49A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.896 0-3.665-.524-5.176-1.433l-.371-.22-3.845 1.004 1.027-3.735-.243-.386A9.967 9.967 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-              Написать в WhatsApp
+              <span data-i18n="contacts.wa_box_btn">Написать в WhatsApp</span>
             </a>
           </div>
         </div>
@@ -1017,7 +1064,7 @@
   <footer class="footer" aria-label="Подвал сайта">
     <div class="container footer__inner">
       <div class="footer__brand">
-        <a href="#hero" class="logo" aria-label="GreenCut — на главную">
+        <a href="#hero" class="logo" data-i18n-aria="nav.aria_logo" aria-label="GreenCut — на главную">
           <span class="logo__icon">
             <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
               <circle cx="16" cy="16" r="16" fill="#2d6a4f"/>
@@ -1028,41 +1075,52 @@
           </span>
           <span class="logo__text">Green<span>Cut</span></span>
         </a>
-        <p>Профессиональный механизированный покос травы и расчистка территорий в Грузии.</p>
+        <p data-i18n="footer.brand_desc">Профессиональный механизированный покос травы и расчистка территорий в Грузии.</p>
+        
+        <!-- Footer Language Selector -->
+        <div class="footer__lang">
+          <button type="button" class="footer__lang-btn active" data-lang="ru">Русский</button>
+          <span class="footer__lang-divider">•</span>
+          <button type="button" class="footer__lang-btn" data-lang="ka">ქართული</button>
+          <span class="footer__lang-divider">•</span>
+          <button type="button" class="footer__lang-btn" data-lang="en">English</button>
+        </div>
       </div>
-      <nav class="footer__nav" aria-label="Навигация в подвале">
-        <h4>Навигация</h4>
+      <nav class="footer__nav" data-i18n-aria="footer.nav_title" aria-label="Навигация в подвале">
+        <h4 data-i18n="footer.nav_title">Навигация</h4>
         <ul>
-          <li><a href="#services">Услуги</a></li>
-          <li><a href="#equipment">Техника</a></li>
-          <li><a href="#advantages">Преимущества</a></li>
-          <li><a href="#gallery">Галерея</a></li>
-          <li><a href="#process">Как работаем</a></li>
-          <li><a href="#contacts">Контакты</a></li>
+          <li><a href="#services" data-i18n="nav.services">Услуги</a></li>
+          <li><a href="#equipment" data-i18n="nav.equipment">Техника</a></li>
+          <li><a href="#advantages" data-i18n="nav.advantages">Преимущества</a></li>
+          <li><a href="#gallery" data-i18n="nav.gallery">Галерея</a></li>
+          <li><a href="#process" data-i18n="nav.process">Как работаем</a></li>
+          <li><a href="#contacts" data-i18n="nav.contacts">Контакты</a></li>
         </ul>
       </nav>
       <div class="footer__contacts">
-        <h4>Контакты</h4>
+        <h4 data-i18n="footer.contacts_title">Контакты</h4>
         <a href="tel:+995XXXXXXXXX">+995 XXX XXX XXX</a>
-        <a href="https://wa.me/995XXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://wa.me/995XXXXXXXXX" target="_blank" rel="noopener" data-i18n-wa>WhatsApp</a>
         <a href="mailto:info@greencut.ge">info@greencut.ge</a>
-        <span>Работаем по всей Грузии</span>
+        <span data-i18n="footer.region">Работаем по всей Грузии</span>
       </div>
     </div>
     <div class="footer__bottom">
       <div class="container">
-        <span>© 2026 GreenCut. Все права защищены.</span>
-        <span>Профессиональный покос травы в Грузии</span>
+        <span data-i18n="footer.copyright">© 2026 GreenCut. Все права защищены.</span>
+        <span data-i18n="footer.tagline">Профессиональный покос травы в Грузии</span>
       </div>
     </div>
   </footer>
 
   <!-- Floating WhatsApp button -->
-  <a href="https://wa.me/995XXXXXXXXX?text=Здравствуйте!%20Меня%20интересует%20покос%20травы%20на%20моём%20участке." class="wa-float" target="_blank" rel="noopener" aria-label="Написать в WhatsApp" title="Написать в WhatsApp">
+  <a href="https://wa.me/995XXXXXXXXX?text=Здравствуйте!%20Меня%20интересует%20покос%20травы%20на%20моём%20участке." class="wa-float" target="_blank" rel="noopener" data-i18n-wa data-i18n-aria="footer.wa_float_title" data-i18n-title="footer.wa_float_title" aria-label="Написать в WhatsApp" title="Написать в WhatsApp">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.86L.057 23.428a.5.5 0 0 0 .615.605l5.698-1.49A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.896 0-3.665-.524-5.176-1.433l-.371-.22-3.845 1.004 1.027-3.735-.243-.386A9.967 9.967 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
     <span class="wa-float__pulse" aria-hidden="true"></span>
   </a>
 
+  <script src="js/translations.js"></script>
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

@@ -188,26 +188,27 @@ function initForm() {
 
   function validate() {
     let valid = true;
+    const t = (key, fallback) => (window.GreenCutI18n ? window.GreenCutI18n.t(key) : null) || fallback;
 
     const name = $('#name');
     if (!name.value.trim()) {
-      setError(name, 'Пожалуйста, введите ваше имя');
+      setError(name, t('order.err_name', 'Пожалуйста, введите ваше имя'));
       valid = false;
     } else clearError(name);
 
     const phone = $('#phone');
     if (!phone.value.trim()) {
-      setError(phone, 'Пожалуйста, введите номер телефона');
+      setError(phone, t('order.err_phone_empty', 'Пожалуйста, введите номер телефона'));
       valid = false;
     } else if (!validatePhone(phone.value)) {
-      setError(phone, 'Введите корректный номер телефона');
+      setError(phone, t('order.err_phone_invalid', 'Введите корректный номер телефона'));
       valid = false;
     } else clearError(phone);
 
     const agree = $('#agree');
     if (!agree.checked) {
       const err = agree.closest('.form-group')?.querySelector('.form-error');
-      if (err) err.textContent = 'Необходимо дать согласие на обработку данных';
+      if (err) err.textContent = t('order.err_agree', 'Необходимо дать согласие на обработку данных');
       valid = false;
     } else {
       const err = agree.closest('.form-group')?.querySelector('.form-error');
@@ -216,6 +217,14 @@ function initForm() {
 
     return valid;
   }
+
+  // Clear errors or re-translate on language change
+  window.addEventListener('languageChanged', () => {
+    const errorFields = $$('.form-input.error', form);
+    if (errorFields.length || $('#agree')?.closest('.form-group')?.querySelector('.form-error')?.textContent) {
+      validate();
+    }
+  });
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();

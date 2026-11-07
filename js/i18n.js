@@ -18,11 +18,24 @@
 
   let currentLang = DEFAULT_LANG;
 
+  // Safely get dictionary from window or global scope
+  function getTranslationsDict() {
+    if (typeof window !== 'undefined' && window.TRANSLATIONS) {
+      return window.TRANSLATIONS;
+    }
+    if (typeof TRANSLATIONS !== 'undefined') {
+      return TRANSLATIONS;
+    }
+    return null;
+  }
+
   // Resolve nested dictionary key like "hero.title"
   function getTranslation(key, lang = currentLang) {
-    if (!window.TRANSLATIONS || !window.TRANSLATIONS[lang]) return null;
+    const dict = getTranslationsDict();
+    if (!dict || !dict[lang]) return null;
+
     const parts = key.split('.');
-    let cur = window.TRANSLATIONS[lang];
+    let cur = dict[lang];
     for (const p of parts) {
       if (cur == null || typeof cur !== 'object') return null;
       cur = cur[p];
@@ -33,11 +46,13 @@
   // Detect initial language
   function detectInitialLanguage() {
     // 1. URL search param: ?lang=ka
-    const params = new URLSearchParams(window.location.search);
-    const urlLang = params.get('lang');
-    if (urlLang && SUPPORTED_LANGS.includes(urlLang.toLowerCase())) {
-      return urlLang.toLowerCase();
-    }
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const urlLang = params.get('lang');
+      if (urlLang && SUPPORTED_LANGS.includes(urlLang.toLowerCase())) {
+        return urlLang.toLowerCase();
+      }
+    } catch (e) {}
 
     // 2. Local storage
     try {
@@ -45,15 +60,15 @@
       if (stored && SUPPORTED_LANGS.includes(stored)) {
         return stored;
       }
-    } catch (e) {
-      // Storage access might be restricted
-    }
+    } catch (e) {}
 
     // 3. Browser language
-    const navLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-    if (navLang.startsWith('ka')) return 'ka';
-    if (navLang.startsWith('en')) return 'en';
-    if (navLang.startsWith('ru') || navLang.startsWith('be') || navLang.startsWith('uk')) return 'ru';
+    try {
+      const navLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+      if (navLang.startsWith('ka')) return 'ka';
+      if (navLang.startsWith('en')) return 'en';
+      if (navLang.startsWith('ru') || navLang.startsWith('be') || navLang.startsWith('uk')) return 'ru';
+    } catch (e) {}
 
     return DEFAULT_LANG;
   }
@@ -63,19 +78,21 @@
     if (!SUPPORTED_LANGS.includes(lang)) lang = DEFAULT_LANG;
     currentLang = lang;
 
+    const dict = getTranslationsDict();
+    const langData = dict ? dict[lang] : null;
+
     // 1. HTML lang attribute
     document.documentElement.lang = lang;
 
     // 2. Meta tags & Title
-    const meta = TRANSLATIONS[lang]?.meta;
-    if (meta) {
-      if (meta.title) document.title = meta.title;
+    if (langData?.meta) {
+      if (langData.meta.title) document.title = langData.meta.title;
       const descEl = document.querySelector('meta[name="description"]');
-      if (descEl && meta.description) descEl.setAttribute('content', meta.description);
+      if (descEl && langData.meta.description) descEl.setAttribute('content', langData.meta.description);
       const ogTitle = document.querySelector('meta[property="og:title"]');
-      if (ogTitle && meta.ogTitle) ogTitle.setAttribute('content', meta.ogTitle);
+      if (ogTitle && langData.meta.ogTitle) ogTitle.setAttribute('content', langData.meta.ogTitle);
       const ogDesc = document.querySelector('meta[property="og:description"]');
-      if (ogDesc && meta.ogDescription) ogDesc.setAttribute('content', meta.ogDescription);
+      if (ogDesc && langData.meta.ogDescription) ogDesc.setAttribute('content', langData.meta.ogDescription);
     }
 
     // 3. Text content / HTML
@@ -83,7 +100,6 @@
       const key = el.getAttribute('data-i18n');
       const val = getTranslation(key, lang);
       if (val != null) {
-        // Use innerHTML so HTML markup like <br/> and accents work
         el.innerHTML = val;
       }
     });
@@ -116,7 +132,7 @@
     });
 
     // 7. Dynamic WhatsApp pre-filled messages
-    const waText = TRANSLATIONS[lang]?.contacts?.wa_prefill || '';
+    const waText = langData?.contacts?.wa_prefill || '';
     if (waText) {
       const encodedMsg = encodeURIComponent(waText);
       document.querySelectorAll('a[data-i18n-wa]').forEach((a) => {
@@ -131,6 +147,7 @@
 
     // 9. Dispatch custom event
     window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
+    console.log('[GreenCut i18n] Language applied:', lang);
   }
 
   // Update switcher controls (Header, Mobile Nav, Footer)
@@ -172,11 +189,13 @@
       // Ignore storage errors
     }
 
-    // Update URL query param cleanly without reload
+    // Update URL query param cleanly without reload (http/https only)
     try {
-      const url = new URL(window.location.href);
-      url.searchParams.set('lang', lang);
-      window.history.replaceState({}, '', url.toString());
+      if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
+        const url = new URL(window.location.href);
+        url.searchParams.set('lang', lang);
+        window.history.replaceState({}, '', url.toString());
+      }
     } catch (e) {
       // Ignore history errors
     }
@@ -240,7 +259,7 @@
     supportedLangs: SUPPORTED_LANGS
   };
 
-  // Run initial translation as early as possible
+  // Run initial translation
   const initialLang = detectInitialLanguage();
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {

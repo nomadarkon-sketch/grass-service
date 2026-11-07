@@ -3,7 +3,7 @@
  * Languages: Russian (ru), Georgian (ka), English (en)
  */
 
-const TRANSLATIONS = {
+window.TRANSLATIONS = {
   ru: {
     meta: {
       title: "GreenCut — Профессиональный покос травы и расчистка территорий в Грузии",
@@ -637,3 +637,8 @@ const TRANSLATIONS = {
     }
   }
 };
+
+var TRANSLATIONS = window.TRANSLATIONS;
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = window.TRANSLATIONS;
+}
